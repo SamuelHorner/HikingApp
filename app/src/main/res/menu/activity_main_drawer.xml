@@ -2,21 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_trips" android:icon="@android:drawable/ic_menu_camera"
+        <item android:id="@+id/nav_trips" android:icon="@drawable/ic_directions_walk_black_24dp"
             android:title="Trips" />
-        <item android:id="@+id/nav_socials" android:icon="@android:drawable/ic_menu_gallery"
+        <item android:id="@+id/nav_socials" android:icon="@drawable/ic_local_bar_black_24dp"
             android:title="Socials" />
-        <item android:id="@+id/nav_committee" android:icon="@android:drawable/ic_menu_slideshow"
+        <item android:id="@+id/nav_committee" android:icon="@drawable/ic_contact_mail_black_24dp"
             android:title="Committee" />
-        <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Tools" />
+        <item android:id="@+id/nav_faqs" android:icon="@drawable/ic_info_black_24dp"
+            android:title="FAQs" />
     </group>
 
     <item android:title="Communicate">
         <menu>
-            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
+            <item android:id="@+id/nav_share" android:icon="@drawable/ic_share_black_24dp"
                 android:title="Share" />
-            <item android:id="@+id/nav_send" android:icon="@android:drawable/ic_menu_send"
+            <item android:id="@+id/nav_send" android:icon="@drawable/ic_send_black_24dp"
                 android:title="Send" />
         </menu>
     </item>

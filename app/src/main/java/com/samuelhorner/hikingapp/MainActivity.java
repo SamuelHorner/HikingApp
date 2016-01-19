@@ -1,5 +1,7 @@
 package com.samuelhorner.hikingapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -39,8 +41,11 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto", "trips@lsuhc.org.uk", null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Enquiry about a trip from App");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi Trip Sec, ");
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }
         });
 
@@ -55,8 +60,10 @@ public class MainActivity extends AppCompatActivity
 
         //How to change elements in the header programatically
         View headerView = navigationView.getHeaderView(0);
+        TextView userName = (TextView) headerView.findViewById(R.id.username);
+        userName.setText("Guest Account");
         TextView emailText = (TextView) headerView.findViewById(R.id.email);
-        emailText.setText("newemail@email.com");
+        emailText.setText("");
 
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -106,7 +113,19 @@ public class MainActivity extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
-            // Handle the camera action
+
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                            "mailto", "trips@lsuhc.org.uk", null));
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Enquiry about a trip from App");
+                    emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi Trip Sec, ");
+                    startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                }
+            });
+
         } else if (id == R.id.nav_socials) {
             //Set the fragment initially
             SocialsFragment fragment = new SocialsFragment();
@@ -115,9 +134,22 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.commit();
 
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                            "mailto", "socials@lsuhc.org.uk", null));
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Enquiry about a Social from App");
+                    emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi Social Sec, ");
+                    startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                }
+            });
+
+
         } else if (id == R.id.nav_committee) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_faqs) {
 
         } else if (id == R.id.nav_share) {
 
